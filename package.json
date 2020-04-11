@@ -1,0 +1,22 @@
+{
+  "name": "music-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bramos33/Music-Library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bramos33/Music-Library/issues"
+  },
+  "homepage": "https://github.com/bramos33/Music-Library#readme",
+  "dependencies": {
+    "electron": "^8.2.1"
+  }
+}
