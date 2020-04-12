@@ -1,0 +1,22 @@
+.column {
+	float: left;
+	width: 50%;
+}
+.button-container {
+	padding-top: 20px;
+	text-align:center;
+}
+.sort-toggle{
+	text-align:left;
+}
+.results-display{ 
+	text-align: center;
+	padding-top: 100px;
+ }
+img {
+  display: block;
+  max-width:375px;
+  max-height:400px;
+  width: auto;
+  height: auto;
+}
