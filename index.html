@@ -1,5 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+
 <head>
+	
 	<link rel="stylesheet" type="text/css" href="theme.css">
+
+	<style>
+		body {
+			padding: 0px;
+			margin: 0px;
+			display: flex;
+			/* background-color: gray; */
+		}
+
+		#songTable {
+			float: right;
+			border-collapse: collapse;
+			position: fixed;
+			top: 30px;
+		}
+
+		#songTable th {
+			border-bottom: 2px solid black;
+			border-left: 2px solid black;
+			border-right: 2px solid black;
+		}
+
+		#songTable td {
+			border: 1px solid black;
+		}
+	</style>
+	<script src="app.js"></script>
 </head>
 <div class="row">
 	<div class="column">
@@ -11,15 +43,24 @@
 			<button type="button">Go</button>
 		</div>
 		<div class="results-display">
-			RESULTS GO HERE
+			<table id="songTable">
+				<tr>
+					<th>Song</th>
+					<th>Artist</th>
+					<th>Album</th>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div class="column">
-  		<img src="pablo.jpg">
-  		<div class="button-container">
+		<img src="pablo.jpg">
+		<div class="button-container">
 			<button type="button">Back</button>
 			<button type="button">Play/Pause</button>
 			<button type="button">Next</button>
 		</div>
 	</div>
 </div>
+<script>
+</script>
+</html>
