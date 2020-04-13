@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "postinstall": "install-app-deps"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/bramos33/Music-Library#readme",
   "dependencies": {
-    "electron": "^8.2.1"
+    "electron": "^8.2.1",
+    "sqlite3": "^4.1.1"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.4.1"
   }
 }
