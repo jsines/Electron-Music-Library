@@ -19,6 +19,7 @@
   "homepage": "https://github.com/bramos33/Music-Library#readme",
   "dependencies": {
     "electron": "^8.2.1",
+    "node-gyp": "^6.1.0",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
