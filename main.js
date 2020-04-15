@@ -1,6 +1,13 @@
 const { app, BrowserWindow }  = require('electron')
-const sqlite3 = require('sqlite3').verbose()
-var db = new sqlite3.Database('music-library')
+const mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'Music-Library'
+})
+
+connection.connect()
 
 function createWindow () {
   // Create the browser window.
