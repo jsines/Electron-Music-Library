@@ -22,10 +22,15 @@ function appendSongs(rows) {
 
 appendSongs(songs)
 
-function changeNowPlaying(filePath){
+function changeNowPlaying(fileName){
 	var audio = document.getElementById('nowPlaying')
 	audio.pause()
-	audio.setAttribute('src', filePath)
+	audio.setAttribute('src', "musicfiles/" + fileName)
 	audio.load()
 	audio.play()
+}
+
+function changeAlbumArtwork(fileName){
+	var image = document.getElementById('nowPlayingImage')
+	image.setAttribute('src', 'albumcovers/' + fileName)
 }
