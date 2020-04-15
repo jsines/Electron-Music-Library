@@ -1,6 +1,8 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow }  = require('electron')
+const sqlite3 = require('sqlite3').verbose()
+var db = new sqlite3.Database('music-library')
 
-function createWindow() {
+function createWindow () {
   // Create the browser window.
   let win = new BrowserWindow({
     width: 800,
