@@ -16,12 +16,16 @@ function appendSongs(rows) {
             
             songElement = songRow.insertCell(-1)
             songElement.innerHTML = element
-        })
-        
+        })        
     })
-
-
-
 }
 
 appendSongs(songs)
+
+function changeNowPlaying(filePath){
+	var audio = document.getElementById('nowPlaying')
+	audio.pause()
+	audio.setAttribute('src', filePath)
+	audio.load()
+	audio.play()
+}
