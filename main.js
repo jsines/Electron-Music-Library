@@ -8,15 +8,14 @@ function createWindow () {
     resizable: false,
     webPreferences: {
       nodeIntegration: true
-    }
-    
+    }    
   })
 
   const template = [
     {
       label: 'File',
       submenu: [
-        { role: 'quit' },
+        { role: 'Quit' },
         {
           label: 'Add Song',
           click() {
@@ -45,4 +44,3 @@ addSongWindow.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
-

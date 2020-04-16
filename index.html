@@ -8,13 +8,14 @@
 
 	<script defer src="app.js"></script>
 </head>
+<body>
 <div class="row">
 	<div class="column">
 		<div class="sort-toggle">
-			<button type="button">Artist</button>
-			<button type="button">Album</button>
-			<button type="button">Song</button>
-			<input type="text" id="query">
+			<input type="radio">Artist</input>
+			<input type="radio">Album</input>
+			<input type="radio">Song</input>
+			<input type="text" id="query" style="width:140px;">
 			<button type="button">Go</button>
 		</div>
 		<div class="results-display">
@@ -36,4 +37,5 @@
 		</div>
 	</div>
 </div>
+</body>
 </html>

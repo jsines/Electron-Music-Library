@@ -12,7 +12,6 @@ connection.connect()
 
 
 
-
 function changeNowPlaying(fileName){
 	var audio = document.getElementById('nowPlaying')
 	audio.pause()
