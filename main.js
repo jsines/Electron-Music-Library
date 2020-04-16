@@ -1,4 +1,4 @@
-const { app, BrowserWindow }  = require('electron')
+const { app, BrowserWindow, Menu, ipc } = require('electron')
 const mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 
 connection.connect()
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   let win = new BrowserWindow({
     width: 800,
@@ -18,11 +18,39 @@ function createWindow () {
     webPreferences: {
       nodeIntegration: true
     }
-    
+
   })
 
   
 
+  const template = [
+    {
+      label: 'File',
+      submenu: [
+        { role: 'quit' },
+        {
+          label: 'Add Song',
+          click() {
+            addSongWindow.loadFile('addSong.html')
+            addSongWindow.show()
+          }
+        }
+      ]
+    }
+  ]
+
+
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+
+  var addSongWindow = new BrowserWindow({
+    width: 400,
+    height: 250,
+    show: false
+  })
+
+
+addSongWindow.webContents.openDevTools()
 
 
 
@@ -33,3 +61,4 @@ function createWindow () {
 
 
 app.whenReady().then(createWindow)
+
