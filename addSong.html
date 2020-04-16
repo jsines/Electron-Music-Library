@@ -28,6 +28,7 @@
 
 
 <script>
+    var songFile
         (function () {
             var holder = document.getElementById('drag-file');
 
@@ -47,7 +48,7 @@
                 e.preventDefault();
 
                 for (let f of e.dataTransfer.files) {
-                    console.log('File(s) you dragged here: ', f.path)
+                    songFile = f.path
                 }
 
                 return false;
