@@ -6,26 +6,12 @@ var connection = mysql.createConnection({
     password: 'password',
     database: 'Music-Library'
 })
-
 connection.connect()
 
 
-var songs = [['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3'],['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3'],['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3'],['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3'],['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3'],['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3'],['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3'],['song1', 'artist1', 'album1'], ['song2', 'artist2', 'album2'], ['song3', 'artist3', 'album3']]
 
-function appendSongs(rows) {
-    var songRow
-    var songElement
-    rows.forEach(things => {
-        songRow = songTable.insertRow(-1)
-        things.forEach(element => {
-            
-            songElement = songRow.insertCell(-1)
-            songElement.innerHTML = element
-        })        
-    })
-}
 
-//appendSongs(songs)
+
 
 function changeNowPlaying(fileName){
 	var audio = document.getElementById('nowPlaying')
@@ -69,11 +55,7 @@ function GetSongsForDisplay() {
 }
 
 
-/**
- *
- * @param artistId, integer ID of the artist associated with the song
- * @constructor
- */
+
 function GetArtistNameFromArtistID(artistId, callback){
     connection.query('SELECT artist_name from artist WHERE artist_id = ' + artistId.toString(), function (err, result, fields) {
         if(err) throw err;
@@ -81,10 +63,7 @@ function GetArtistNameFromArtistID(artistId, callback){
     })
 }
 
-/**
- *
- * @param albumId, id of the album in the database that is associated with the song
- */
+
 function GetAlbumNameFromAlbumId(albumId, callback){
     connection.query('select album_name from album where album_id = ' + albumId.toString(), function (err, result, fields) {
         if(err) throw err;
@@ -112,10 +91,6 @@ function DisplaySongsInTable(songs){
     }
 }
 
-/**
- * Song class to store the values of the keys from the queries that will be used to play the songs and
- * get the information to display the songs to the user.
- */
 class Song {
     constructor(songName, songArtist, songAlbum) {
 
