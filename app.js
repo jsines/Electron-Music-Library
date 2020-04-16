@@ -75,6 +75,17 @@ class Song {
     }
 }
 
-GetSongsForDisplay(1, function(songs){
-	DisplaySongsInTable(songs)
-})
+function GetSongsHelper(){
+	songTable.innerHTML = "<tr><th>Song</th><th>Artist</th><th>Album</th></tr>"
+	let mode;
+	if(document.getElementById("song_radio").checked){
+		mode = 0;
+	}else if(document.getElementById("artist_radio").checked){
+		mode = 1;
+	}else if(document.getElementById("album_radio").checked){
+		mode = 2;
+	}
+	GetSongsForDisplay(mode, function(songs){
+		DisplaySongsInTable(songs)
+	})
+}

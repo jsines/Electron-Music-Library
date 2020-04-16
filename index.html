@@ -11,11 +11,11 @@
 <div class="row">
 	<div class="column">
 		<div class="sort-toggle">
-			<input type="radio" name="toggle">Song</input>
-			<input type="radio" name="toggle">Artist</input>
-			<input type="radio" name="toggle">Album</input>
+			<input type="radio" name="toggle" id="song_radio">Song</input>
+			<input type="radio" name="toggle" id="artist_radio">Artist</input>
+			<input type="radio" name="toggle" id="album_radio">Album</input>
 			<input type="text" id="query" style="width:140px;">
-			<button type="button">Go</button>
+			<button type="button" onClick="GetSongsHelper()">Go</button>
 		</div>
 		<div class="results-display">
 			<table id="songTable">
