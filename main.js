@@ -15,12 +15,19 @@ function createWindow () {
     {
       label: 'File',
       submenu: [
-        { role: 'Quit' },
+        { role: 'quit' },
         {
           label: 'Add Song',
           click() {
             addSongWindow.loadFile('addSong.html')
             addSongWindow.show()
+          }
+        },
+        {
+          label: 'Remove Song',
+          click() {
+            removeSongWindow.loadFile('removeSong.html')
+            removeSongWindow.show()
           }
         }
       ]
@@ -37,9 +44,19 @@ function createWindow () {
     show: false
   })
 
+  var removeSongWindow = new BrowserWindow({
+    width: 400,
+    heigh: 250,
+    show:false,
+    webPreferences: {
+      nodeIntegration: true
+    }    
+  })
+  win.webContents.openDevTools()
+  removeSongWindow.webContents.openDevTools()
   // and load the index.html of the app.
   win.loadFile('index.html')
-  win.webContents.openDevTools()
+
 }
 
 app.whenReady().then(createWindow)
