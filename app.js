@@ -8,10 +8,6 @@ var connection = mysql.createConnection({
 })
 connection.connect()
 
-
-
-
-
 function changeNowPlaying(fileName){
 	var audio = document.getElementById('nowPlaying')
 	audio.pause()
@@ -25,55 +21,34 @@ function changeAlbumArtwork(fileName){
 	image.setAttribute('src', 'albumcovers/' + fileName)
 }
 
-
-GetSongsForDisplay()
-function GetSongsForDisplay() {
-    console.log('CODE GETS HERE')
+function GetSongsForDisplay(mode, callback) {
+	var sortBy;
+	switch(mode){
+		case 0:
+			sortBy = "song_name"
+			break;
+		case 1:
+			sortBy = "artist_name"
+			break;
+		case 2:
+			sortBy = "album_name"
+			break;
+	}
     var songName;
     var albumName;
     var artistName;
     var songs = []
-    connection.query('select song_name, album_id from song', function (err, result, fields) {
+    connection.query('SELECT song_name, album_name, artist_name FROM song s INNER JOIN album al ON s.album_id = al.album_id INNER JOIN artist ar ON ar.artist_id = al.artist_id ORDER BY ' + sortBy, function (err, result, fields) {
         if (err) throw err;
         Object.keys(result).forEach(function (key) {
             var row = result[key];
             songName = row.song_name;
-            GetAlbumNameFromAlbumId(row.album_id, function (result) {
-                albumName = result
-            })
-            GetArtistIdFromAlbumId(row.album_id, function (result) {
-                GetArtistNameFromArtistID(result, function (result) {
-                    artistName = result
-                    console.log('The artist name is: ' + artistName)
-                    var song = new Song(songName, artistName, albumName)
-                    songs.push(song)
-                })
-            })
+            albumName = row.album_name;
+            artistName = row.artist_name;
+            var song = new Song(songName, artistName, albumName)
+            songs.push(song)
         })
-    })
-}
-
-
-
-function GetArtistNameFromArtistID(artistId, callback){
-    connection.query('SELECT artist_name from artist WHERE artist_id = ' + artistId.toString(), function (err, result, fields) {
-        if(err) throw err;
-        return callback(result[0].artist_name)
-    })
-}
-
-
-function GetAlbumNameFromAlbumId(albumId, callback){
-    connection.query('select album_name from album where album_id = ' + albumId.toString(), function (err, result, fields) {
-        if(err) throw err;
-        return callback(result[0].album_name)
-    })
-}
-
-function GetArtistIdFromAlbumId(albumId, callback){
-    connection.query('select artist_id from album where album_id = ' + albumId.toString(), function (err, result, fields) {
-        if(err) throw err;
-        return callback(result[0].artist_id)
+        return callback(songs)
     })
 }
 
@@ -99,3 +74,7 @@ class Song {
 
     }
 }
+
+GetSongsForDisplay(1, function(songs){
+	DisplaySongsInTable(songs)
+})

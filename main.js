@@ -37,10 +37,10 @@ function createWindow () {
     show: false
   })
 
-
-addSongWindow.webContents.openDevTools()
   // and load the index.html of the app.
   win.loadFile('index.html')
+  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
+
