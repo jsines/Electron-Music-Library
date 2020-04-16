@@ -2,6 +2,7 @@
 	float: left;
 	width: 50%;
 }
+
 .button-container {
 	padding-top: 20px;
 	text-align:center;
@@ -9,7 +10,7 @@
 .sort-toggle{
 	text-align:left;
 }
-.results-display{ 
+.results-display{
 	text-align: center;
 	padding-top: 10px;
 	overflow-y: scroll;
