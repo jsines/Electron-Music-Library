@@ -3,52 +3,17 @@
 
 <head>
     <link rel="stylesheet" type="text/css">
-    
+    <script src='addSong.js'></script>
 </head>
-<style>
-    #drag-file {
-        border: 2px solid black;
-        text-align: center;
-        width: 100%;
-        height: 80%;
-    }
-</style>
-
-<div id="drag-file">
-    <p>Drag your files here</p>
-</div>
-<div>Name:<input type="text" id="song-name"></div>
+<body>
+<div>Song Name:<input type="text" id="song-name"></div>
 <div>Artist: <input type="text" id="song-artist"></div>
 <div>Album: <input type="text" id="song-album"></div>
-<div><button type="submit" id="add-song">Add Song</button></div>
+<div>Song File: <input type="text" id="song-file"></div>
+<div>Cover File: <input type="text" id="cover-file"></div>
+<div><button type="submit" id="add-song"
+    onClick="addSong()">Add Song</button></div>
 <div><button type="submit" id="cancel">Cancel</button></div>
-<script>
-    
-    var holder = document.getElementById('drag-file');
-    var songFile;
-    holder.ondragover = () => {
-        return false;
-    };
-
-    holder.ondragleave = () => {
-        return false;
-    };
-
-    holder.ondragend = () => {
-        return false;
-    };
-
-    holder.ondrop = (e) => {
-        e.preventDefault();
-
-        for (let f of e.dataTransfer.files) {
-            songFile = f.path
-            console.log('File(s) you dragged here: ', songFile)
-        }
-        return false;
-    };
-
-</script>
-<script src='addSong.js'></script>
+</body>
 
 </html>

@@ -41,7 +41,10 @@ function createWindow () {
   var addSongWindow = new BrowserWindow({
     width: 400,
     height: 250,
-    show: false
+    show: false,
+    webPreferences: {
+      nodeIntegration: true
+    }    
   })
 
   var removeSongWindow = new BrowserWindow({
@@ -52,6 +55,7 @@ function createWindow () {
       nodeIntegration: true
     }    
   })
+  addSongWindow.webContents.openDevTools()
   // and load the index.html of the app.
   win.loadFile('index.html')
 
