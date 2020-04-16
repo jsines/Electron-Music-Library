@@ -18,7 +18,5 @@ function removeSong(){
 
 	connection.query("DELETE FROM song WHERE song_name = ?", songName, function (err, result){
 		if (err) throw err;
-		console.log("Hello3")
-		console.log("Number of records deleted: " + result.affectedRows)
 	})
 }

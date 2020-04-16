@@ -11,13 +11,12 @@ connection.connect(function(err) {
 });
 
 function addSong(){
-	console.log("Hello1")
 	var songName = document.getElementById("song-name").value
 	var songArtist = document.getElementById("song-artist").value
 	var songAlbum = document.getElementById("song-album").value
 	var fileName = document.getElementById("song-file").value
 	var coverFile = document.getElementById("cover-file").value
-	console.log("hi 1")
+
 	connection.query("INSERT INTO artist (artist_name, artist_country) VALUES (?, 'USA')", songArtist, function (err, result){
 		if (err) throw err;
 		connection.query("SELECT (artist_id) FROM artist WHERE artist_name = ?", songArtist, function (err, result){
@@ -28,7 +27,6 @@ function addSong(){
 					if (err) throw err;
 					connection.query("INSERT INTO song (song_name, song_file, song_length, song_release, song_added, album_id) VALUES (?, ?, ?, ?, ?, ?)", [songName, fileName, "60", "2005-11-11", "2005-11-11", result[0].album_id], function (err, result){
 						if (err) throw err;
-						console.log("hi 1234")
 					})
 				})
 			})
