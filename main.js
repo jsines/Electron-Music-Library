@@ -8,15 +8,14 @@ function createWindow () {
     resizable: false,
     webPreferences: {
       nodeIntegration: true
-    }
-    
+    }    
   })
 
   const template = [
     {
       label: 'File',
       submenu: [
-        { role: 'quit' },
+        { role: 'Quit' },
         {
           label: 'Add Song',
           click() {
@@ -38,10 +37,9 @@ function createWindow () {
     show: false
   })
 
-
-
   // and load the index.html of the app.
   win.loadFile('index.html')
+  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
