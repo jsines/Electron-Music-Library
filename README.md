@@ -1,6 +1,6 @@
-# Music-Library
+# Electron-Music-Library
 
-Music-Library is a small electron app made for CSI-3450 Database Design and Implementation at Oakland University during the Winter 2020 semester. This application requires a running SQL database in order to function.
+Electron-Music-Library is a small electron app made for CSI-3450 Database Design and Implementation at Oakland University during the Winter 2020 semester. This application requires a running SQL database in order to function.
 
 ## Installation
 
@@ -10,6 +10,7 @@ Clone this repository, the use npm to install the necessary packages and start t
 npm install
 npm start
 ```
+SQL connection info can be changed in the file app.js
 
 ## Usage
 
